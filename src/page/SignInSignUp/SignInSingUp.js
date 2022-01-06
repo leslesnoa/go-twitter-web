@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import BasicModal from "../../components/Modal/BasicModal";
+import SignUpForm from "../../components/SignUpForm";
 import LogoTwitter from "../../assets/twitter_log.png"
 import LogoBlackTwitter from "../../assets/twtter.jpeg"
 
@@ -46,7 +47,7 @@ function RightComponent(props) {
       <img src={LogoBlackTwitter} alt="Twitter" />
       <h2>Please Register User</h2>
       <Button variant="primary"
-        onClick={() => openModal(<h2>Register Form</h2>)}
+        onClick={() => openModal(<SignUpForm setShowModal={setShowModal} />)}
       >
         Register
       </Button>
