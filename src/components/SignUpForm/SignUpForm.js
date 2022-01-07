@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {Row, Col, Form, Button, Spinner} from "react-bootstrap";
 import { values, size } from "lodash";
 import { toast } from "react-toastify";
+// import {isEmailValid} from "../../utils/validations"
 
 export default function SignUpForm(props) {
   const {setShowModal} = props;
@@ -9,16 +10,28 @@ export default function SignUpForm(props) {
 
   const onSubmit = e => {
     e.preventDefault();
+    console.log(formData);
     setShowModal(false);
 
-    console.log(formData);
-
+    
     let validCount = 0
     values(formData).some(value => {
       value && validCount++
       return null;
     });
-    console.log(validCount);
+
+    // console.log(size(formData));
+
+    /* フォームの項目数に満たない場合、入力項目数が足りない旨をバナー表示 */
+    if(validCount !== size(formData)) {
+      toast.warning("Not complete form imput contents")
+    } else {
+      if(size(formData.password) < 6) {
+        toast.warning("Please enter the password with at least 6 characters")
+      } else {
+        toast.success("Formvalue input OK.")
+      }
+    }
   };
 
   const onChange = e => {
