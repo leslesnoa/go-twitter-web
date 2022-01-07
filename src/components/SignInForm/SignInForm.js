@@ -4,8 +4,8 @@ import { values, size } from "lodash";
 import { toast } from "react-toastify";
 import {signInApi, setTokenApi } from "../../api/auth";
 
-export default function SignInForm() {
-
+export default function SignInForm(props) {
+  const {setRefreshCheckLogin} = props;
   const [ formData, setFormData ] = useState(initialFormValue());
 
   const onSubmit = e => {
@@ -30,8 +30,9 @@ export default function SignInForm() {
         if(response.message) {
           toast.warning(response.message)
         } else {
+          // console.log(response.token);
           setTokenApi(response.token);
-          console.log(response.token);
+          setRefreshCheckLogin(true)
         }
       }).catch(() => {
         toast.error("An Error Occurred Internal ServerError")

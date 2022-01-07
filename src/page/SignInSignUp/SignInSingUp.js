@@ -6,7 +6,8 @@ import SignInForm from "../../components//SignInForm";
 import LogoTwitter from "../../assets/twitter_log.png"
 import LogoBlackTwitter from "../../assets/twtter.jpeg"
 
-export default function SignInSingUp() {
+export default function SignInSingUp(props) {
+  const {setRefreshCheckLogin} = props;
   const [showModal, setShowModal] = useState(false);
   const [contentModal, setContentModal] = useState(null);
 
@@ -22,7 +23,8 @@ export default function SignInSingUp() {
           <LeftComponent />
           <RightComponent
             openModal={openModal} 
-            setShowModal={setShowModal} 
+            setShowModal={setShowModal}
+            setRefreshCheckLogin={setRefreshCheckLogin}
           />
         </Row>
       </Container>
@@ -43,7 +45,7 @@ function LeftComponent() {
 }
 
 function RightComponent(props) {
-  const { openModal, setShowModal } = props;
+  const { openModal, setShowModal, setRefreshCheckLogin } = props;
 
   return (
     <Col className="signin-signup__right" xs={6}>
@@ -56,7 +58,7 @@ function RightComponent(props) {
         Register
       </Button>
       <Button variant="outline-primary"
-        onClick={() => openModal(<SignInForm />)}
+        onClick={() => openModal(<SignInForm setRefreshCheckLogin={setRefreshCheckLogin} />)}
       >
         Login
       </Button>
