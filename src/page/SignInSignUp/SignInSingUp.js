@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import BasicModal from "../../components/Modal/BasicModal";
 import SignUpForm from "../../components/SignUpForm";
+import SignInForm from "../../components//SignInForm";
 import LogoTwitter from "../../assets/twitter_log.png"
 import LogoBlackTwitter from "../../assets/twtter.jpeg"
 
@@ -55,7 +56,7 @@ function RightComponent(props) {
         Register
       </Button>
       <Button variant="outline-primary"
-        onClick={() => openModal(<h2>Login Form</h2>)}
+        onClick={() => openModal(<SignInForm />)}
       >
         Login
       </Button>
