@@ -33,6 +33,7 @@ export default function SignInForm(props) {
           // console.log(response.token);
           setTokenApi(response.token);
           setRefreshCheckLogin(true)
+          window.location.reload();
         }
       }).catch(() => {
         toast.error("An Error Occurred Internal ServerError")
