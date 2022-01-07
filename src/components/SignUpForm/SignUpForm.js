@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import {Row, Col, Form, Button, Spinner} from "react-bootstrap";
+import { values, size } from "lodash";
+import { toast } from "react-toastify";
 
 export default function SignUpForm(props) {
   const {setShowModal} = props;
@@ -10,6 +12,13 @@ export default function SignUpForm(props) {
     setShowModal(false);
 
     console.log(formData);
+
+    let validCount = 0
+    values(formData).some(value => {
+      value && validCount++
+      return null;
+    });
+    console.log(validCount);
   };
 
   const onChange = e => {
