@@ -3,15 +3,17 @@ import {Row, Col, Form, Button, Spinner} from "react-bootstrap";
 import { values, size } from "lodash";
 import { toast } from "react-toastify";
 // import {isEmailValid} from "../../utils/validations"
+import {signUpApi } from "../../api/auth"
 
 export default function SignUpForm(props) {
   const {setShowModal} = props;
   const [ formData, setFormData ] = useState(initialFormValue());
+  // const [ signUpLoading, setSignUpLoading ] = useState(false)
 
   const onSubmit = e => {
     e.preventDefault();
     console.log(formData);
-    setShowModal(false);
+    // setShowModal(false);
 
     
     let validCount = 0
@@ -29,7 +31,26 @@ export default function SignUpForm(props) {
       if(size(formData.password) < 6) {
         toast.warning("Please enter the password with at least 6 characters")
       } else {
+        // signUpLoading(true)
         toast.success("Formvalue input OK.")
+        signUpApi(formData).then(response => {
+          if(response.code) {
+            /* responseにcodeが含まれる場合はエラー */
+            toast.warning(response.message);
+          } else {
+            toast.success("Success user registered");
+            /* モーダルを閉じる */
+            setShowModal(false);
+            /* フォームの入力値を初期化 */
+            setFormData(initialFormValue());
+          }
+        })
+        .catch(() => {
+          toast.error("An Error Occurred. Internal Server Error!")
+        })
+        // .finally(() => {
+
+        // })
       }
     }
   };
@@ -82,6 +103,7 @@ export default function SignUpForm(props) {
 
         <Button variant="primary" type="submit">
           Register
+          {/* {!signUpLoading ? "Register" : <Spinner animation="border" />} */}
         </Button>
       </Form>
     </div>
