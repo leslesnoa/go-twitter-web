@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Form, Button, Spinner } from "react-bootstrap";
 import { values, size } from "lodash";
 import { toast } from "react-toastify";
-import {signInApi } from "../../api/auth";
+import {signInApi, setTokenApi } from "../../api/auth";
 
 export default function SignInForm() {
 
@@ -30,6 +30,7 @@ export default function SignInForm() {
         if(response.message) {
           toast.warning(response.message)
         } else {
+          setTokenApi(response.token);
           console.log(response.token);
         }
       }).catch(() => {
