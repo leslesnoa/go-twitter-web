@@ -6,12 +6,12 @@ import LogoTwitter from "../../assets/twitter_log.png"
 import LogoBlackTwitter from "../../assets/twtter.jpeg"
 
 export default function SignInSingUp() {
-  const [showModal, setShowModal] = useState(false)
-  const [contentModal, setcontentModal] = useState(null)
+  const [showModal, setShowModal] = useState(false);
+  const [contentModal, setContentModal] = useState(null);
 
   const openModal = content => {
-    setShowModal(true)
-    setcontentModal(content)
+    setShowModal(true);
+    setContentModal(content);
   };
 
   return (
@@ -19,7 +19,10 @@ export default function SignInSingUp() {
       <Container className="signin-signup" fluid>
         <Row>
           <LeftComponent />
-          <RightComponent openModal={openModal} setShow={setShowModal} />
+          <RightComponent
+            openModal={openModal} 
+            setShowModal={setShowModal} 
+          />
         </Row>
       </Container>
       <BasicModal show={showModal} setShow={setShowModal}>
