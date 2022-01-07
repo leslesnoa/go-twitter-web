@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import LogoTwitter from "../../assets/twitter_log.png"
 import { logoutApi } from "../../api/auth";
 
-export default function LeftMenu() {
+export default function LeftMenu(props) {
+  const { setRefreshCheckLogin } = props;
 
   const logout = () => {
     logoutApi();
-    window.location.reload();
+    setRefreshCheckLogin(true);
+    // window.location.reload();
   };
 
   return (
