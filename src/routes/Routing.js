@@ -4,6 +4,7 @@ import { map } from "lodash";
 // import configRouting from "./configRouting";
 import Home from "../page/Home";
 import Error404 from "../page/Error404";
+import User from "../page/User";
 
 export default function Routing(props) {
   const {setRefreshCheckLogin} = props;
@@ -18,6 +19,9 @@ export default function Routing(props) {
         {/* <Route exact path='/' component={Home} /> */}
         <Route exact path='/'>
           <Home setRefreshCheckLogin={setRefreshCheckLogin} />
+        </Route>
+        <Route exact path='/:id'>
+          <User setRefreshCheckLogin={setRefreshCheckLogin} />
         </Route>
         <Route path='*' component={Error404} />
       </Switch>
