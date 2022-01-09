@@ -27,3 +27,23 @@ export function addTweetApi(message) {
       return err;
     });
 }
+
+export function getUserTweetsApi(userId, page) {
+  const url = `${API_HOST}/readTweets?id=${userId}&page=${page}`;
+
+  const params = {
+    // method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getTokenApi()}`
+    },
+  };
+
+  return fetch(url, params)
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => {
+      return err;
+    });
+}

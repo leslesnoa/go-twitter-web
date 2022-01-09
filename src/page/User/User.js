@@ -7,20 +7,20 @@ import { getUserApi } from "../../api/user";
 import BannerAvatar from "../../components/User/BannerAvatar";
 import useAuth from "../../hooks/useAuth";
 import InfoUser from "../../components/InfoUser/InfoUser";
+import {getUserTweetsApi} from "../../api/tweet";
+import ListTweets from "../../components/ListTweets/ListTweets";
 
 function User(props) {
-  // console.log(props);
   const { match } = props;
   // console.log(match.params.id);
-  const { params } = match;
-
   const [user, setUser] = useState(null);
-
+  const [tweets, setTweets] = useState(null)
+  const { params } = match;
   // console.log(user);
-
   const logginedUser = useAuth();
-
   // console.log(logginedUser);
+
+  // console.log(tweets);
 
   useEffect(() => {
     getUserApi(params.id).then(response => {
@@ -30,6 +30,16 @@ function User(props) {
     }).catch(() => {
       toast.error("Internal Server Error. user no exist");
     });
+  }, [params]);
+
+  useEffect(() => {
+    getUserTweetsApi(params.id, 1)
+      .then(response => {
+        setTweets(response);
+      })
+      .catch(() => {
+        setTweets([]);
+      });
   }, [params]);
 
   return (
@@ -42,7 +52,10 @@ function User(props) {
       </div>
       <BannerAvatar user={user} logginedUser={logginedUser} />
       <InfoUser user={user} />
-      <div className="user__tweets">List Tweets!</div>
+      <div className="user__tweets">
+        <h3>Tweets</h3>
+        {tweets && <ListTweets tweets={tweets} />}
+      </div>
     </BasicLayout>
   );
 }
