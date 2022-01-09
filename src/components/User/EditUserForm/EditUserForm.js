@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import { useDropZone } from "react-dropzone";
+import { toast } from "react-toastify";
+import { updateInfoApi } from "../../../api/user";
 
 export default function EditUserForm(props) {
   const {user, setShowModal} = props;
   const [formData, setFormData] = useState(initialValue(user))
-  console.log(formData);
+  // console.log(formData);
 
   const onChange = e => {
     setFormData({...formData, [e.target.name]: e.target.value})
@@ -12,6 +15,16 @@ export default function EditUserForm(props) {
 
   const onSubmit = e => {
     e.preventDefault();
+
+    updateInfoApi(formData).then(() => {
+      setShowModal(false);
+    })
+    .catch(() => {
+      toast.error("Error updating data")
+    })
+    .finally(() => {
+      window.location.reload();
+    });
   };
 
   return (
