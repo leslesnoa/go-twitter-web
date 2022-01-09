@@ -6,6 +6,7 @@ import BasicLayout from "../../layout/BasicLayout";
 import { getUserApi } from "../../api/user";
 import BannerAvatar from "../../components/User/BannerAvatar";
 import useAuth from "../../hooks/useAuth";
+import InfoUser from "../../components/InfoUser/InfoUser";
 
 function User(props) {
   // console.log(props);
@@ -39,9 +40,8 @@ function User(props) {
         </h2>
         <h2>User...</h2>
       </div>
-      {/* <div>Banner</div> */}
       <BannerAvatar user={user} logginedUser={logginedUser} />
-      <div>Info User</div>
+      <InfoUser user={user} />
       <div className="user__tweets">List Tweets!</div>
     </BasicLayout>
   );

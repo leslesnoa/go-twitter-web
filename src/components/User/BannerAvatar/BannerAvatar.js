@@ -8,10 +8,11 @@ export default function BannerAvatar(props) {
   const bannerUrl = "NotImplement";
   const avatarUrl = user?.avatar ? "NotImplement" : AvatarNoFound;
 
-  console.log(user);
-  console.log(logginedUser);
+  // console.log(user);
+  // console.log(logginedUser);
   return (
-    <div className="banner-avatart" style={{ backgroundImage: `url('${bannerUrl}')` }}>
+    // <div className="banner-avatart" style={{ backgroundImage: `url('${bannerUrl}')` }}>
+    <div className="banner-avatart">
       <h2>Not Implement BannerAvatar...</h2>
     <div 
       className="avatar" 
