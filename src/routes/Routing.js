@@ -5,6 +5,7 @@ import { map } from "lodash";
 import Home from "../page/Home";
 import Error404 from "../page/Error404";
 import User from "../page/User";
+import Users from "../page/Users/Users";
 
 export default function Routing(props) {
   const {setRefreshCheckLogin} = props;
@@ -19,6 +20,9 @@ export default function Routing(props) {
         {/* <Route exact path='/' component={Home} /> */}
         <Route exact path='/'>
           <Home setRefreshCheckLogin={setRefreshCheckLogin} />
+        </Route>
+        <Route exact path='/users'>
+          <Users />
         </Route>
         <Route exact path='/:id'>
           <User setRefreshCheckLogin={setRefreshCheckLogin} />
