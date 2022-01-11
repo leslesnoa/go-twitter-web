@@ -4,6 +4,7 @@ import { map } from "lodash";
 
 export default function ListTweets(props) {
   const { tweets } = props;
+  // console.log(tweets);
 
   return (
     <div className="list-tweets">
@@ -16,7 +17,7 @@ export default function ListTweets(props) {
 
 function Tweet(props) {
   const { tweet } = props;
-  console.log(tweet);
+  // console.log(tweet);
 
   return <h2>{tweet.message}</h2>
 }

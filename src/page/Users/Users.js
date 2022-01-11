@@ -11,11 +11,11 @@ import "./Users.scss";
 
 function Users(props) {
   // console.log(props);
-  const {location} = props;
+  const { location, history } = props;
   const [users, setUsers] = useState(null);
   const params = useUsersQuery(location);
+  const [kindUser, setKindUser] = useState(params.kind || "follow");
   // const params = location;
-
   // console.log(params);
   // console.log(queryString.stringify(params));
 
@@ -31,7 +31,21 @@ function Users(props) {
       }).catch(() => {
         setUsers([]);
       });
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location])
+
+  const onChangeKind = kind => {
+    setUsers(null);
+    if(kind === "new") {
+      setKindUser("new");
+    } else {
+      setKindUser("follow");
+    }
+
+    history.push({
+      search: queryString.stringify({ kind: kind, page:1, search: ""})
+    })
+  };
 
 
   return (
@@ -42,13 +56,14 @@ function Users(props) {
         <input 
           type="text"
           placeholder="useres"
+          onChange={(e) => history.push({ search: queryString.stringify({...params, search: e.target.value, page: 1}) })}
         />
       </div>
       <ButtonGroup className="users__options">
-        <Button>
+        <Button onClick={() => onChangeKind("follow")}>
           Follow
         </Button>
-        <Button>
+        <Button onClick={() => onChangeKind("new")}>
           New
         </Button>
       </ButtonGroup>
