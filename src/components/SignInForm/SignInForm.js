@@ -4,6 +4,8 @@ import { values, size } from "lodash";
 import { toast } from "react-toastify";
 import {signInApi, setTokenApi } from "../../api/auth";
 
+import "./SignInForm.scss";
+
 export default function SignInForm(props) {
   const {setRefreshCheckLogin} = props;
   const [ formData, setFormData ] = useState(initialFormValue());

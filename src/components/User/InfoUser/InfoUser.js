@@ -2,6 +2,8 @@ import React from "react";
 import moment from "moment";
 import localization from "moment/locale/ja";
 
+import "./InfoUser.scss";
+
 export default function InfoUser(props) {
   const { user } = props;
   // console.log(user);

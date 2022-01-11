@@ -2,6 +2,8 @@ import React, { Children } from "react";
 import {Modal} from "react-bootstrap";
 import LogoTwitter from "../../../assets/twitter_log.png"
 
+import "./BasicModal.scss";
+
 export default function BasicModal(props) {
   const {show, setShow, children} = props;
 

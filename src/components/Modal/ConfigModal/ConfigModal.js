@@ -2,6 +2,8 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import {Close} from "../../../utils/Icons";
 
+import "./ConfigModal.scss";
+
 export default function ConfigModal(props) {
   const { show, setShow, title, children } = props;
 

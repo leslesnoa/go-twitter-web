@@ -12,7 +12,7 @@ export default function BannerAvatar(props) {
   const { user, logginedUser } = props;
   const [showModal, setShowModal] = useState(false)
   const [following, setFollowing] = useState(null)
-  // const bannerUrl = "NotImplement";
+  const bannerUrl = user?.banner ? `${API_HOST}/getBanner?id=${user.id}` : null;
   const avatarUrl = user?.avatar ? `${API_HOST}/getAvatar?id=${user.id}` : AvatarNoFound;
 
   // console.log(user);
@@ -31,11 +31,12 @@ export default function BannerAvatar(props) {
 
   return (
     // <div className="banner-avatart" style={{ backgroundImage: `url('${bannerUrl}')` }}>
-    <div className="banner-avatart">
-      <h2>Not Implement BannerAvatar...</h2>
+    <div className="banner-avatar"
+      style={{ backgroundImage: `url('${bannerUrl}' )` }}
+    >
     <div 
       className="avatar" 
-      style={{ backgroundImage: `url('${avatarUrl}')` }}
+      style={{ backgroundImage: `url('${avatarUrl}' )` }}
       >
     </div>
       {user && (

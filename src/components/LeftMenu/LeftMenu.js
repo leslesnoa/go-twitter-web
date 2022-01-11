@@ -5,6 +5,15 @@ import LogoTwitter from "../../assets/twitter_log.png"
 import { logoutApi } from "../../api/auth";
 import useAuth from "../../hooks/useAuth";
 import TweetModal from "../Modal/TweetModal/TweetModal";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faHome,
+//   faUser,
+//   faUsers,
+//   faPowerOff,
+// } from "@fortawesome/free-solid-svg-icons";
+
+import "./LeftMenu.scss";
 
 export default function LeftMenu(props) {
   const { setRefreshCheckLogin } = props;

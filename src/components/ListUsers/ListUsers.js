@@ -2,6 +2,8 @@ import React from "react";
 import { map, isEmpty } from "lodash";
 import User from "./User";
 
+import "./ListUsers.scss";
+
 export default function ListUsers(props) {
   const { users } = props;
 
