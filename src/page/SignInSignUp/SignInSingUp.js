@@ -6,6 +6,8 @@ import SignInForm from "../../components//SignInForm";
 import LogoTwitter from "../../assets/twitter_log.png"
 import LogoBlackTwitter from "../../assets/twtter.jpeg"
 
+import "./SignInSignUp.scss";
+
 export default function SignInSingUp(props) {
   const {setRefreshCheckLogin} = props;
   const [showModal, setShowModal] = useState(false);

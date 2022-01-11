@@ -4,6 +4,8 @@ import { useDropZone } from "react-dropzone";
 import { toast } from "react-toastify";
 import { updateInfoApi } from "../../../api/user";
 
+import "./EditUserForm.scss";
+
 export default function EditUserForm(props) {
   const {user, setShowModal} = props;
   const [formData, setFormData] = useState(initialValue(user))

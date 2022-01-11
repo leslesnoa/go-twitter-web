@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import className from "classnames";
 import { addTweetApi } from "../../../api/tweet";
 
+import "./TweetModal.scss";
+
 export default function TweetModal(props) {
   const {show, setShow} = props;
   const [message, setMessage] = useState("");

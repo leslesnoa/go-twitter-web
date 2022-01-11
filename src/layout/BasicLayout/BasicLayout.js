@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import LeftMenu from "../../components/LeftMenu";
 
+import "./BasicLayout.scss";
+
 export default function BasicLayout(props) {
   // console.log(props);
   const { className, setRefreshCheckLogin, children } = props;

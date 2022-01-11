@@ -3,6 +3,8 @@ import BasicLayout from "../../layout/BasicLayout";
 import { getTweetsFollowersApi } from "../../api/tweet";
 import ListTweets from "../../components/ListTweets/ListTweets";
 
+import "./Home.scss";
+
 export default function Home(props) {
   const { setRefreshCheckLogin } = props;
   const [tweets, setTweets] = useState(null);

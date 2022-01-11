@@ -6,9 +6,11 @@ import BasicLayout from "../../layout/BasicLayout";
 import { getUserApi } from "../../api/user";
 import BannerAvatar from "../../components/User/BannerAvatar";
 import useAuth from "../../hooks/useAuth";
-import InfoUser from "../../components/InfoUser/InfoUser";
+import InfoUser from "../../components/User/InfoUser";
 import {getUserTweetsApi} from "../../api/tweet";
 import ListTweets from "../../components/ListTweets/ListTweets";
+
+import "./User.scss";
 
 function User(props) {
   const { match } = props;

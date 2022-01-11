@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {Image} from "react-bootstrap";
 import { map } from "lodash";
 
+import "./ListTweets.scss";
+
 export default function ListTweets(props) {
   const { tweets } = props;
   // console.log(tweets);
