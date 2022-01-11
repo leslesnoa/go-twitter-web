@@ -4,13 +4,16 @@ import AvatarNoFound from "../../../assets/png/avatar-no-found.png";
 import ConfigModal from "../../Modal/ConfigModal";
 import EditUserForm from "../EditUserForm";
 import { checkFollowApi } from "../../../api/follow";
+import { API_HOST } from "../../../utils/constant";
+
+import "./BannerAvatar.scss";
 
 export default function BannerAvatar(props) {
   const { user, logginedUser } = props;
   const [showModal, setShowModal] = useState(false)
   const [following, setFollowing] = useState(null)
-  const bannerUrl = "NotImplement";
-  const avatarUrl = user?.avatar ? "NotImplement" : AvatarNoFound;
+  // const bannerUrl = "NotImplement";
+  const avatarUrl = user?.avatar ? `${API_HOST}/getAvatar?id=${user.id}` : AvatarNoFound;
 
   // console.log(user);
   // console.log(logginedUser);
