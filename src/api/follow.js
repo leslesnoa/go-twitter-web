@@ -24,6 +24,52 @@ export function checkFollowApi(userId) {
     });
 }
 
+export function followUserApi(userId) {
+  const url = `${API_HOST}/insertRelation?id=${userId}`
+
+  const params = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getTokenApi()}`
+    },
+  };
+
+  return fetch(url, params)
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      return result
+    })
+    .catch(err => {
+      return err;
+    });
+}
+
+export function unFollowUserApi(userId) {
+  const url = `${API_HOST}/deleteRelation?id=${userId}`
+
+  const params = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getTokenApi()}`
+    },
+  };
+
+  return fetch(url, params)
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      return result
+    })
+    .catch(err => {
+      return err;
+    });
+}
+
 export function getFollowsApi(paramsUrl) {
   const url = `${API_HOST}/listUsers?${paramsUrl}`;
 
