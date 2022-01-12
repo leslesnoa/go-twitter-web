@@ -19,7 +19,7 @@ export function addTweetApi(message) {
   return fetch(url, params)
     .then(response => {
       if(response.status >= 200 && response.status < 300) {
-        return {code: response.status, message: "Tweet send"};
+        return {code: response.status, message: "Tweet send ok"};
       }
       return {code: 500, message: "Error by server"};
     })

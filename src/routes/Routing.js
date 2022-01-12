@@ -18,14 +18,14 @@ export default function Routing(props) {
           </Route>
         })} */}
         {/* <Route exact path='/' component={Home} /> */}
-        <Route exact path='/'>
-          <Home setRefreshCheckLogin={setRefreshCheckLogin} />
-        </Route>
         <Route exact path='/users'>
           <Users />
         </Route>
         <Route exact path='/:id'>
           <User setRefreshCheckLogin={setRefreshCheckLogin} />
+        </Route>
+        <Route exact path='/'>
+          <Home setRefreshCheckLogin={setRefreshCheckLogin} />
         </Route>
         <Route path='*' component={Error404} />
       </Switch>

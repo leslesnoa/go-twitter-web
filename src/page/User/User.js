@@ -13,7 +13,7 @@ import ListTweets from "../../components/ListTweets/ListTweets";
 import "./User.scss";
 
 function User(props) {
-  const { match } = props;
+  const { match, setRefreshCheckLogin } = props;
   // console.log(match.params.id);
   const [user, setUser] = useState(null);
   const [tweets, setTweets] = useState(null)
@@ -21,17 +21,16 @@ function User(props) {
   // console.log(user);
   const logginedUser = useAuth();
   // console.log(logginedUser);
-
   // console.log(tweets);
 
   useEffect(() => {
-    getUserApi(params.id).then(response => {
-      if (!response) toast.error("Internal Server Error. user no exist");
-      // console.log(response);
-      setUser(response);
-    }).catch(() => {
-      toast.error("Internal Server Error. user no exist");
-    });
+      getUserApi(params.id).then(response => {
+        if (!response) toast.error("Internal Server Error. user no exist");
+        // console.log(response);
+        setUser(response);
+      }).catch(() => {
+        toast.error("Internal Server Error. user no exist");
+      });
   }, [params]);
 
   useEffect(() => {
@@ -45,7 +44,7 @@ function User(props) {
   }, [params]);
 
   return (
-    <BasicLayout className="user">
+    <BasicLayout className="user" setRefreshCheckLogin={setRefreshCheckLogin}>
       <div className="user__title">
         <h2> 
           {user ? `${user.number} ${user.name}` : "User no exist"}

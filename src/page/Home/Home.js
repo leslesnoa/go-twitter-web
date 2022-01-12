@@ -27,11 +27,10 @@ export default function Home(props) {
   return (
       <BasicLayout className="home" setRefreshCheckLogin={setRefreshCheckLogin}>
         <div className="home__title">
-          <h2>aaaa</h2>
+          <h2>Timeline</h2>
         </div>
-        <p>list a Tweets</p>
+        <p>Your Following Tweets List</p>
         {tweets && <ListTweets tweets={tweets} />}
-        <h2>Home</h2>
       </BasicLayout>
   );
 };
@@ -41,7 +40,7 @@ function formatModel(tweets) {
   tweets.forEach((tweet) => {
     tweetsTemp.push({
       _id: tweet._id,
-      userId: tweet.user_relation_id,
+      user_id: tweet.user_relation_id,
       message: tweet.Tweet.message,
       date: tweet.Tweet.date,
     })

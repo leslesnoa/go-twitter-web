@@ -15,11 +15,10 @@ export default function TweetModal(props) {
   const onSubmit= (e) => {
     e.preventDefault();
     // console.log(message);
-
     if(message.length > 0 && message.length <= maxLength) {
       addTweetApi(message)
         .then(response => {
-          // console.log(response);
+          console.log(response);
           if(response?.code >= 200 && response?.code < 300) {
             toast.success(response.message);
             setShow(false);
