@@ -51,20 +51,18 @@ function Users(props) {
   return (
     <BasicLayout className="users" title="Users">
       <div className="users__title">
-        <h2>Users...</h2>
-        <p>Input Search</p>
         <input 
           type="text"
-          placeholder="useres"
+          placeholder="find by name keyword"
           onChange={(e) => history.push({ search: queryString.stringify({...params, search: e.target.value, page: 1}) })}
         />
       </div>
       <ButtonGroup className="users__options">
         <Button onClick={() => onChangeKind("follow")}>
-          Follow
+          フォロー中
         </Button>
         <Button onClick={() => onChangeKind("new")}>
-          New
+          未フォロー
         </Button>
       </ButtonGroup>
 
@@ -77,8 +75,7 @@ function Users(props) {
 export default withRouter(Users);
 
 function useUsersQuery(location) {
-  const { page =1, kind = "follow", search } = queryString.parse(
-  // const { page =1, type = "follow", search= "" } = queryString.parse(
+  const { page =1, kind = "follow", search = "" } = queryString.parse(
     location.search
   );
 
