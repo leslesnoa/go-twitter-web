@@ -1,16 +1,21 @@
-# FROM node:16-alpine
+FROM node:17-alpine as builder
 
-# WORKDIR /usr/src/app
+WORKDIR /app
 
-# ベースイメージの作成
-FROM node:17-alpine
-# コンテナ内で作業するディレクトリを指定
-WORKDIR /usr/src/app
-# package.jsonとyarn.lockを/usr/src/appにコピー
-COPY package* ./
-# パッケージをインストール
+COPY package.json .
+
 RUN npm install
-# ファイルを全部作業用ディレクトリにコピー
+
 COPY . .
-# コンテナを起動する際に実行されるコマンド
-ENTRYPOINT [ "npm", "start" ]
+
+RUN npm run build
+
+FROM nginx:1.19-alpine
+
+COPY --from=builder /app/build /usr/share/nginx/html
+
+COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD [ "nginx", "-g", "daemon off;" ]
