@@ -14,7 +14,7 @@ export default function SignUpForm(props) {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     // setShowModal(false);
 
     
@@ -30,8 +30,8 @@ export default function SignUpForm(props) {
     if(validCount !== size(formData)) {
       toast.warning("Not complete form imput contents")
     } else {
-      if(size(formData.password) < 6) {
-        toast.warning("Please enter the password with at least 6 characters")
+      if(size(formData.password) < 4) {
+        toast.warning("Please enter the password with at least 4 characters")
       } else {
         // signUpLoading(true)
         toast.success("Formvalue input OK.")
@@ -64,14 +64,13 @@ export default function SignUpForm(props) {
 
   return (
     <div className="sign-up-form">
-      <h2>Signupform...</h2>
       <Form onSubmit={onSubmit} onChange={onChange}>
         <Form.Group>
           <Row>
             <Col>
               <Form.Control
                 type="text"
-                placeholder="Number" 
+                placeholder="First Name" 
                 name="number"
                 defaultValue={formData.number}
                 />
@@ -79,7 +78,7 @@ export default function SignUpForm(props) {
             <Col>
               <Form.Control
                 type="text" 
-                placeholder="Name" 
+                placeholder="Last Name" 
                 name="name"
                 defaultValue={formData.name}
                 />

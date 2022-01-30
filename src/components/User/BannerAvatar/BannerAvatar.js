@@ -56,21 +56,20 @@ export default function BannerAvatar(props) {
     </div>
       {user && (
         <div className="options">
-          {/* <Button>Edit profile</Button> */}
-          {logginedUser._id === user.id && <Button onClick={() => setShowModal(true)}>Edit Profile</Button>}
+          {logginedUser._id === user.id && <Button onClick={() => setShowModal(true)}>編集する</Button>}
 
           {logginedUser._id !== user.id &&
             following !== null &&
               (following ? (
                 <Button onClick={onUnFollow}>フォロー中
-                  <span>Unfollow</span>
+                  <span>Unfollow?</span>
                 </Button>
               ) : (
                 <Button onClick={onFollow}>フォローする</Button>
               ))}
         </div>
       )}
-      <ConfigModal show={showModal} setShow={setShowModal} title="Edit Profile">
+      <ConfigModal show={showModal} setShow={setShowModal} title="あなたの現在のプロフィール">
         <EditUserForm user={user} setShowModal={setShowModal} />
       </ConfigModal>
 

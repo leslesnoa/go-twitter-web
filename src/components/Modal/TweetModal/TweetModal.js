@@ -18,7 +18,7 @@ export default function TweetModal(props) {
     if(message.length > 0 && message.length <= maxLength) {
       addTweetApi(message)
         .then(response => {
-          console.log(response);
+          // console.log(response);
           if(response?.code >= 200 && response?.code < 300) {
             toast.success(response.message);
             setShow(false);
@@ -49,7 +49,7 @@ export default function TweetModal(props) {
           <Form.Control 
             as="textarea"
             rows="6"
-            placeholder="please any tweet"
+            placeholder="今何していますか？"
             onChange={(e) => setMessage(e.target.value)}
           />
           <span className="count">
@@ -59,7 +59,7 @@ export default function TweetModal(props) {
             type="submit"
             disabled={message.length < 1 || message.length > maxLength}
           >
-            Tweet</Button>
+            ツイート</Button>
         </Form>
       </Modal.Body>
     </Modal>

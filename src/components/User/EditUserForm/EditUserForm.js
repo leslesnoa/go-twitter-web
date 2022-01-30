@@ -12,22 +12,22 @@ export default function EditUserForm(props) {
   const {user, setShowModal} = props;
   const [formData, setFormData] = useState(initialValue(user))
   // console.log(formData);
-  const [bannerUrl, setBannerUrl] = useState(
-    user?.banner ? `${API_HOST}/getBanner?id=${user.id}` : null
-  );
+  // const [bannerUrl, setBannerUrl] = useState(
+  //   user?.banner ? `${API_HOST}/getBanner?id=${user.id}` : null
+  // );
 
-  const onDropBanner = useCallback(acceptedFile => {
-    console.log(acceptedFile);
-  })
-  const {
-    getRootProps: getRootBannerProps,
-    getInputProps: getInputBannerProps
-  } = useDropzone({
-    accept: "image/jpeg, image/png",
-    noKeyboard: true,
-    multiple: false,
-    onDrop: onDropBanner
-  });
+  // const onDropBanner = useCallback(acceptedFile => {
+  //   console.log(acceptedFile);
+  // })
+  // const {
+  //   getRootProps: getRootBannerProps,
+  //   getInputProps: getInputBannerProps
+  // } = useDropzone({
+  //   accept: "image/jpeg, image/png",
+  //   noKeyboard: true,
+  //   multiple: false,
+  //   onDrop: onDropBanner
+  // });
 
   const onChange = e => {
     setFormData({...formData, [e.target.name]: e.target.value})
@@ -49,14 +49,14 @@ export default function EditUserForm(props) {
 
   return (
     <div className="edit-user-form">
-      <div 
+      {/* <div 
         className="banner"
         style={{ backgroundImage: `url('${bannerUrl}')` }}
         {...getRootBannerProps()}
-      ></div>
+      ></div> */}
 
-        <Camera />
-        <input {...getInputBannerProps()} />
+        {/* <Camera /> */}
+        {/* <input {...getInputBannerProps()} /> */}
       <Form onSubmit={onSubmit} onChange={onChange}>
         <Form.Group>
           <Row>
@@ -74,7 +74,7 @@ export default function EditUserForm(props) {
             </Col> */}
           </Row>
           <Button className="btn-submit" variant="primary" type="submit">
-            Apply
+            適用する
           </Button>
         </Form.Group>
       </Form>

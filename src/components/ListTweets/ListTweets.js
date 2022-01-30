@@ -25,7 +25,7 @@ function Tweet(props) {
   const { tweet } = props;
   const [userInfo, setUserInfo] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(null);
-  console.log(tweet);
+  // console.log(tweet);
   // console.log(userInfo);
 
   useEffect(() => {

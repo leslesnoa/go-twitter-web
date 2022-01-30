@@ -10,10 +10,10 @@ export default function InfoUser(props) {
 
   return (
     <div className="info-user">
-      <h2 className="name">Infouser...</h2>
-        {user?.number} {user?.name}
-      <p className="email">{user?.email}</p>
-      {user?.birth && <div className="discription">{moment(user.birth).locale("ja", localization).format("LL")}</div>}
+      <h2 className="name">ユーザプロフィール詳細</h2>
+        名前: {user?.number} {user?.name}
+      <p className="email">Eメール: {user?.email}</p>
+      {user?.birth && <div className="discription">誕生日: {moment(user.birth).locale("ja", localization).format("LL")}</div>}
     </div>
   );
 }

@@ -20,8 +20,6 @@ function User(props) {
   const { params } = match;
   // console.log(user);
   const logginedUser = useAuth();
-  // console.log(logginedUser);
-  // console.log(tweets);
 
   useEffect(() => {
       getUserApi(params.id).then(response => {
@@ -47,14 +45,14 @@ function User(props) {
     <BasicLayout className="user" setRefreshCheckLogin={setRefreshCheckLogin}>
       <div className="user__title">
         <h2> 
-          {user ? `${user.number} ${user.name}` : "User no exist"}
+          {user ? `${user.number} ${user.name}` : "ユーザが存在しません"}
+          さんのプロフィール画面
         </h2>
-        <h2>User...</h2>
       </div>
       <BannerAvatar user={user} logginedUser={logginedUser} />
       <InfoUser user={user} />
       <div className="user__tweets">
-        <h3>Tweets</h3>
+        <h3>直近の投稿</h3>
         {tweets && <ListTweets tweets={tweets} />}
       </div>
     </BasicLayout>

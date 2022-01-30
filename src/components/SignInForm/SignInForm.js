@@ -12,7 +12,6 @@ export default function SignInForm(props) {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(formData);
 
     let validCount = 0
     values(formData).some(value => {
@@ -20,7 +19,6 @@ export default function SignInForm(props) {
       return null;
     });
 
-    console.log(validCount);
     if(size(formData) !== validCount) {
       toast.warning("You must all input form value");
     } else {
@@ -49,7 +47,6 @@ export default function SignInForm(props) {
 
   return (
     <div className="sign-in-form">
-      <h2>SignInForm...</h2>
       <Form onSubmit={onSubmit} onChange={onChange}>
         <Form.Group>
           <Form.Control 

@@ -53,16 +53,16 @@ function Users(props) {
       <div className="users__title">
         <input 
           type="text"
-          placeholder="find by name keyword"
+          placeholder="名前で検索する"
           onChange={(e) => history.push({ search: queryString.stringify({...params, search: e.target.value, page: 1}) })}
         />
       </div>
       <ButtonGroup className="users__options">
         <Button onClick={() => onChangeKind("follow")}>
-          フォロー中
+          フォロー中のユーザー
         </Button>
         <Button onClick={() => onChangeKind("new")}>
-          未フォロー
+          未フォローのユーザー
         </Button>
       </ButtonGroup>
 

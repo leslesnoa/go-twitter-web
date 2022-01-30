@@ -27,9 +27,9 @@ export default function Home(props) {
   return (
       <BasicLayout className="home" setRefreshCheckLogin={setRefreshCheckLogin}>
         <div className="home__title">
-          <h2>Timeline</h2>
+          <h2>タイムライン</h2>
         </div>
-        <p>Your Following Tweets List</p>
+        <p>フォロー中のツイート</p>
         {tweets && <ListTweets tweets={tweets} />}
       </BasicLayout>
   );
