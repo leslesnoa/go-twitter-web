@@ -46,3 +46,29 @@ export function updateInfoApi(data) {
       return err;
     });
 }
+
+export function uploadAvatarApi(file) {
+  const url = `${API_HOST}/uploadAvatar`;
+
+  const formData = new FormData();
+  formData.append("avatar", file);
+
+  const params = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${getTokenApi()}`
+    },
+    body: formData
+  };
+
+  return fetch(url, params)
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      return result;
+    })
+    .catch(err => {
+      return err;
+    });
+}

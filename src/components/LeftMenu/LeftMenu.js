@@ -32,14 +32,14 @@ export default function LeftMenu(props) {
     <div className="left-menu">
       <img className="logo" src={LogoTwitter} alt="Twitter" />
         <Link to="/">
-          <FontAwesomeIcon icon={faHome} /> ホーム</Link>
+          <FontAwesomeIcon icon={faHome} />ホーム</Link>
         <Link to="/users">
-        <FontAwesomeIcon icon={faUsers} /> ユーザ一覧</Link>
+        <FontAwesomeIcon icon={faUsers} />ユーザ一</Link>
         <Link to={`/${user?._id}`}>
-        <FontAwesomeIcon icon={faUser} /> マイプロフィール</Link>
+        <FontAwesomeIcon icon={faUser} />プロフィール</Link>
         <Link to="" onClick={logout}>
-        <FontAwesomeIcon icon={faPowerOff} /> ログアウト</Link>
-        <Button onClick={() => setShowModal(true)}>ツイートする</Button>
+        <FontAwesomeIcon icon={faPowerOff} />ログアウト</Link>
+        <Button onClick={() => setShowModal(true)}>ツイート</Button>
       <TweetModal show={showModal} setShow={setShowModal} />
     </div>
   );

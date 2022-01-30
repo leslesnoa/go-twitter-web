@@ -74,7 +74,7 @@ export default function EditUserForm(props) {
             </Col> */}
           </Row>
           <Button className="btn-submit" variant="primary" type="submit">
-            適用する
+            適用
           </Button>
         </Form.Group>
       </Form>

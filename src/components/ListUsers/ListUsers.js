@@ -9,7 +9,7 @@ export default function ListUsers(props) {
 
   // console.log(users);
   if(isEmpty(users)) {
-    return <h2>Not Found User</h2>
+    return <h2>ユーザーが存在しません</h2>
   }
 
   return (
