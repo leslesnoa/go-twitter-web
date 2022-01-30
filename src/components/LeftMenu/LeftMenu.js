@@ -5,13 +5,13 @@ import LogoTwitter from "../../assets/twitter_log.png"
 import { logoutApi } from "../../api/auth";
 import useAuth from "../../hooks/useAuth";
 import TweetModal from "../Modal/TweetModal/TweetModal";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faHome,
-//   faUser,
-//   faUsers,
-//   faPowerOff,
-// } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUser,
+  faUsers,
+  faPowerOff,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./LeftMenu.scss";
 
@@ -29,23 +29,17 @@ export default function LeftMenu(props) {
   };
 
   return (
-    <div className=""left-menu>
+    <div className="left-menu">
       <img className="logo" src={LogoTwitter} alt="Twitter" />
-      <div>
-        <Link to="/">ホーム</Link>
-      </div>
-      <div>
-        <Link to="/users">ユーザ一覧</Link>
-      </div>
-      <div>
-        <Link to={`/${user?._id}`}>マイプロフィール</Link>
-      </div>
-      <div>
-        <Link to="" onClick={logout}>ログアウト</Link>
-      </div>
-      <div>
+        <Link to="/">
+          <FontAwesomeIcon icon={faHome} /> ホーム</Link>
+        <Link to="/users">
+        <FontAwesomeIcon icon={faUsers} /> ユーザ一覧</Link>
+        <Link to={`/${user?._id}`}>
+        <FontAwesomeIcon icon={faUser} /> マイプロフィール</Link>
+        <Link to="" onClick={logout}>
+        <FontAwesomeIcon icon={faPowerOff} /> ログアウト</Link>
         <Button onClick={() => setShowModal(true)}>ツイートする</Button>
-      </div>
       <TweetModal show={showModal} setShow={setShowModal} />
     </div>
   );

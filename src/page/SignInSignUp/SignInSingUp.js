@@ -44,7 +44,7 @@ function LeftComponent() {
       <img src={LogoWhiteTwitter} alt="Twitter" />
       {/* <img src={LogoTwitter} alt="Twitter" /> */}
       <div>
-        <h3>Demo user...</h3>
+        <h3>デモユーザーアカウント</h3>
         <h5>Email: test@example.com</h5>
         <h5>PW: password</h5>
         <h2>採用技術一覧</h2>
@@ -57,6 +57,9 @@ function LeftComponent() {
           </li>
           <li>
             <h2>mongoDB</h2>
+          </li>
+          <li>
+            <h2>JWT</h2>
           </li>
           <li>
             <h2>Docker</h2>
