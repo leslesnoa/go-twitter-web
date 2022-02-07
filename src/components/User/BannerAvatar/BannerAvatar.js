@@ -43,15 +43,15 @@ export default function BannerAvatar(props) {
       setReloadFollow(true);
     });
   }
-  const onFileInputChange = async (e) => {
-    console.log(e.target.files);
+  const onFileInputChange = (e) => {
+    // console.log(e.target.files);
     var uploadFile = e.target.files[0]
-    await uploadAvatarApi(uploadFile)
+    uploadAvatarApi(uploadFile)
     .then(() => {
       window.location.reload();
     })
     .catch(() => {
-      toast.error("Error al subir el nuevo avatar");
+      toast.error("Error could not upload avatar");
     });
   };
 
@@ -65,8 +65,8 @@ export default function BannerAvatar(props) {
       >
     </div>
     <div className="upload-avatar-button">
-    <h4>Upload new icon</h4>
-    <input type='file' accept="image/png,image/jpeg" onChange={onFileInputChange}/>
+      <h4>Upload new icon</h4>
+      <input type='file' accept="image/png,image/jpeg" onChange={onFileInputChange}/>
     </div>
       {user && (
         <div className="options">
