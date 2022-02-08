@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 180px;
+    height: 80px;
     background-color: $background-dark-light;
     background-size: cover;
     background-position: center;
@@ -27,8 +27,8 @@
 
   .avatar {
     position: relative;
-    top: -50px;
-    left: 20px;
+    top: -20px;
+    left: 10px;
     background-color: $background-dark-light;
     width: 120px;
     height: 120px;
@@ -46,7 +46,7 @@
     }
 
     svg {
-      width: 30px;
+      width: 1px;
       fill: $font-light;
       &:hover {
         fill: $font-dark;

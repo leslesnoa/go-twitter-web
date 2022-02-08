@@ -18,6 +18,31 @@ export default function BannerAvatar(props) {
   const bannerUrl = user?.banner ? `${API_HOST}/getBanner?id=${user.id}` : null;
   const avatarUrl = user?.avatar ? `${API_HOST}/getAvatar?id=${user.id}` : AvatarNoFound;
 
+  const [loading, setLoading] = useState(false);
+  const [avatarFile, setAvatarFile] = useState(null)
+  const changeUploadFile = async (event) => {
+    const file  = event.target.files[0];
+    console.log(event.target);
+    console.log(file);
+    console.log(avatarFile);
+    setAvatarFile(file);
+
+    event.target.value = '';
+  };
+  const onSubmit = async(e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (avatarFile) {
+      await uploadAvatarApi(avatarFile).catch(() => {
+        toast.error("Error upload avatar");
+      });
+    }
+
+    setLoading(false);
+    window.location.reload();
+  }
+
   useEffect(() => {
     if (user) {
       checkFollowApi(user?.id).then(response => {
@@ -43,17 +68,6 @@ export default function BannerAvatar(props) {
       setReloadFollow(true);
     });
   }
-  const onFileInputChange = (e) => {
-    // console.log(e.target.files);
-    var uploadFile = e.target.files[0]
-    uploadAvatarApi(uploadFile)
-    .then(() => {
-      window.location.reload();
-    })
-    .catch(() => {
-      toast.error("Error could not upload avatar");
-    });
-  };
 
   return (
     <div className="banner-avatar"
@@ -66,7 +80,10 @@ export default function BannerAvatar(props) {
     </div>
     <div className="upload-avatar-button">
       <h4>Upload new icon</h4>
-      <input type='file' accept="image/png,image/jpeg" onChange={onFileInputChange}/>
+      <input type='file' accept="image/png,image/jpeg" onChange={changeUploadFile}/>
+      <Button onClick={onSubmit} className="btn-submit" variant="primary" type="submit">
+        Update Image
+      </Button>
     </div>
       {user && (
         <div className="options">

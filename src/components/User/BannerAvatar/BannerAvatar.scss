@@ -4,18 +4,23 @@
   position: relative;
   background-color: $background-dark-light;
   height: 220px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   .upload-avatar-button {
-    padding: 50px 30px;
+    padding: 10px 30px;
+  }
+  .btn-submit {
+    margin: 10px;
+    margin-left: 150px;
+    display: flex;
   }
 
   .avatar {
     position: absolute;
-    bottom: -50px;
+    bottom: -20px;
     left: 20px;
     background-color: $background-dark-light;
     width: 150px;

@@ -1,33 +1,13 @@
-import React, {useState, useCallback} from "react";
+import React, {useState} from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import { useDropzone } from "react-dropzone";
 import { toast } from "react-toastify";
 import { updateInfoApi } from "../../../api/user";
-import { API_HOST } from "../../../utils/constant";
-import { Camera } from "../../../utils/Icons";
 
 import "./EditUserForm.scss";
 
 export default function EditUserForm(props) {
   const {user, setShowModal} = props;
   const [formData, setFormData] = useState(initialValue(user))
-  // console.log(formData);
-  // const [bannerUrl, setBannerUrl] = useState(
-  //   user?.banner ? `${API_HOST}/getBanner?id=${user.id}` : null
-  // );
-
-  // const onDropBanner = useCallback(acceptedFile => {
-  //   console.log(acceptedFile);
-  // })
-  // const {
-  //   getRootProps: getRootBannerProps,
-  //   getInputProps: getInputBannerProps
-  // } = useDropzone({
-  //   accept: "image/jpeg, image/png",
-  //   noKeyboard: true,
-  //   multiple: false,
-  //   onDrop: onDropBanner
-  // });
 
   const onChange = e => {
     setFormData({...formData, [e.target.name]: e.target.value})
@@ -49,14 +29,6 @@ export default function EditUserForm(props) {
 
   return (
     <div className="edit-user-form">
-      {/* <div 
-        className="banner"
-        style={{ backgroundImage: `url('${bannerUrl}')` }}
-        {...getRootBannerProps()}
-      ></div> */}
-
-        {/* <Camera /> */}
-        {/* <input {...getInputBannerProps()} /> */}
       <Form onSubmit={onSubmit} onChange={onChange}>
         <Form.Group>
           <Row>
@@ -69,9 +41,6 @@ export default function EditUserForm(props) {
             <Col>
               <Form.Control type="email" placeholder="Email" name="email" defaultValue={formData.email} />
             </Col>
-            {/* <Col>
-              <Form.Control type="text" placeholder="DateBirth" name="birth" />
-            </Col> */}
           </Row>
           <Button className="btn-submit" variant="primary" type="submit">
             適用
